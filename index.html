@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Verifikasi Pengirim</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background: #ffe6f0;
+        margin: 0;
+    }
+
+    .box {
+        background-color: rgba(255,255,255,0.9);
+        padding: 30px;
+        border-radius: 15px;
+        text-align: center;
+        box-shadow: 0px 4px 15px rgba(0,0,0,0.2);
+        transition: transform 0.1s;
+    }
+
+    input {
+        padding: 10px 15px;
+        font-size: 16px;
+        margin-top: 10px;
+        border-radius: 8px;
+        border: 1px solid #ccc;
+        width: 250px;
+ text-align: center;
+
+    }
+
+    button {
+        margin-top: 20px;
+        padding: 10px 20px;
+        font-size: 16px;
+        border-radius: 8px;
+        border: none;
+        background-color: #ff6f61;
+        color: #fff;
+        cursor: pointer;
+    }
+
+    #error {
+        color: red;
+        margin-top: 15px;
+        display: none;
+    }
+
+    /* Animasi goyang */
+    @keyframes shake {
+        0% { transform: translateX(0); }
+        25% { transform: translateX(-10px); }
+        50% { transform: translateX(10px); }
+        75% { transform: translateX(-10px); }
+        100% { transform: translateX(0); }
+    }
+
+    .shake {
+        animation: shake 0.3s;
+    }
+</style>
+</head>
+<body>
+
+<div class="box" id="box">
+    <h2>Siapa yang ngirim link ini?</h2>
+    <input type="text" id="answerInput" placeholder="tulis nama lengkap!😊">
+    <br>
+    <button id="nextBtn">Lanjut</button>
+    <div id="error">YANG BENER AJA!?COBA LAGI!</div>
+</div>
+
+<script>
+    const nextBtn = document.getElementById('nextBtn');
+    const answerInput = document.getElementById('answerInput');
+    const error = document.getElementById('error');
+    const box = document.getElementById('box');
+
+    nextBtn.addEventListener('click', () => {
+        const userAnswer = answerInput.value.trim().toLowerCase();
+        if(userAnswer === 'keisya olvita') {
+            alert("Jawaban benar! Lanjut ke tahap berikutnya.");
+            // Arahkan ke halaman baru
+    window.location.href = 'PILIHAN.html';
+        } else {
+            error.style.display = 'block';
+            box.classList.add('shake');
+            setTimeout(() => box.classList.remove('shake'), 300);
+        }
+    });
+
+    // Hapus error saat user mulai mengetik lagi
+    answerInput.addEventListener('input', () => {
+        error.style.display = 'none';
+    });
+</script>
+
+</body>
+</html>

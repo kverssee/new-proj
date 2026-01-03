@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <title>Pilih Dulu 💬</title>
+    <style>
+        body {
+            margin: 0;
+            height: 100vh;
+            background: #ffe6f0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            width: 320px;
+            border-radius: 15px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+        }
+
+        h2 {
+            margin-bottom: 20px;
+        }
+
+        button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+
+        #opsi1 {
+            background: #ffd1dc;
+        }
+
+        #opsi2 {
+            background: #cce5ff;
+        }
+
+        #lanjutBtn {
+            background: #c8f7c5;
+            display: none;
+        }
+
+        #message {
+            margin-top: 15px;
+            font-size: 14px;
+            color: #444;
+        }
+    </style>
+</head>
+<body>
+
+<div class="box">
+    <h2>Mau kemana dulu nih? 🤍</h2>
+
+    <button id="opsi1">Ucapan kali yaa</button>
+    <button id="opsi2">Mau liat video dulu ahh</button>
+
+    <div id="message"></div>
+    <button id="lanjutBtn">Iya</button>
+</div>
+
+<script>
+    const opsi1 = document.getElementById("opsi1");
+    const opsi2 = document.getElementById("opsi2");
+    const message = document.getElementById("message");
+    const lanjutBtn = document.getElementById("lanjutBtn");
+
+    opsi1.addEventListener("click", () => {
+        message.textContent = "Aduh ga bisa nih, harus liat tayangannya dulu deh 😅";
+        lanjutBtn.style.display = "block";
+    });
+
+    lanjutBtn.addEventListener("click", () => {
+        window.location.href = "tayangan.html";
+    });
+
+    opsi2.addEventListener("click", () => {
+        window.location.href = "tayangan.html";
+    });
+</script>
+
+</body>
+</html>
+
